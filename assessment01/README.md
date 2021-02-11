@@ -25,3 +25,11 @@ Return your answer in the form (x, y) or ([x, y], depending on the language ), w
 - Test.assert_equals(largest_power(81), (64, 3))
 - Test.assert_equals(largest_power(29), (27, 1))
 - Test.assert_equals(largest_power(4), (1, -1))
+
+## Answer
+
+use node.js 15.x
+
+```shell
+node assessment01
+```
