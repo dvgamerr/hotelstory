@@ -1,209 +1,132 @@
 import Head from 'next/head'
+import { useState } from 'react';
+import { Tabs, Tab } from 'react-bootstrap';
+import Header from '../components/header'
+import Course from '../components/course'
+
+import { curriculumItems } from '../data'
 
 export default function Home() {
+  const [toggle, setToogle] = useState(Boolean)
+
   return (
-    <div className="container">
+    <div className="course">
       <Head>
-        <title>Create Next App</title>
+        <title>คอร์สปริญญาโทออนไลน์ Design Thinking กระบวนการคิดเชิงออกแบบ | SkillLane</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <main>
-        <h1 className="title">
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className="description">
-          Get started by editing <code>pages/index.js</code>
-        </p>
-
-        <div className="grid">
-          <a href="https://nextjs.org/docs" className="card">
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className="card">
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className="card"
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className="card"
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+      <div className="container pt-4">
+        <Header></Header>
+        <Course></Course>
+      </div>
+      <div className="container">
+        <div className="row">
+          <div className="col-xl-9 col-lg-12">
+            <Tabs defaultActiveKey="detail" className="pt-4" transition={false}>
+              <Tab eventKey="detail" title="รายละเอียด">
+                <div className="row mt-4">
+                  <div className="col-12 collapsible" style={{ maxHeight:toggle?2048:130}}>
+                    <p>
+                      <b>นวัตกรรม (Innovation) เป็นสิ่งที่ทุกคนกำลังมองหา</b> เพราะไม่ว่าคุณจะเป็นพนักงานบริษัท ผู้บริหาร เจ้าของกิจการ หรือไม่ว่าจะทำสายอาชีพอะไรก็ตาม เราต่างอยากทำให้งานของเราออกมาดีขึ้น อยากทำงานให้น้อยแต่ได้ผลมาก และอยากสร้างผลงานที่สร้างผลกระทบที่ดีในวงกว้าง
+                    </p>
+                    <p>
+                      ด้วยเหตุนี้เอง Design Thinking หรือ กระบวนการคิดเชิงออกแบบ จึงกลายเป็นเรื่องที่รับความนิยมอย่างแพร่หลายทั่วโลก เพราะ Design Thinking คือกระบวนการที่มุ่งเน้นมนุษย์เป็นศูนย์กลาง เพื่อให้ได้มาซึ่งนวัตกรรมใหม่ และเป็นเครื่องมือที่จะช่วยให้คุณแก้ไขปัญหายากๆ อีกด้วย หากคุณเป็นคนที่ต้องคอยคิดสร้างผลิตภัณฑ์ใหม่ๆ ตลอดเวลา หรือต้องพบเจอกับปัญหาที่แก้ไขยากๆ Design Thinking จะช่วยเหลือคุยได้แน่นอน
+                    </p>
+                    <p>
+                      ในคอร์สนี้คุณจะได้เรียนรู้ขั้นตอนทั้งหมดของ Design Thinking อย่างละเอียด รวมถึงตัวอย่างการประยุกต์ใช้ Design Thinking ของบริษัทระดับโลกที่นำวิธีนี้ไปใช้ในการสร้างนวัตกรรมใหม่และแก้ไขปัญหาต่างๆ และสำคัญที่สุด คอร์สนี้จะสอนวิธีการนำ Design Thinking ไปใช้ในชีวิตจริงและชีวิตการงานของทุกคน&nbsp;
+                    </p>
+                    <p>
+                      <i>Design Thinking เป็นสิ่งที่สำคัญในยุคนี้มาก และเป็นเรื่องที่ทุกคนที่อยากประสบความสำเร็จต้องรู้</i>
+                    </p>
+                    <p>
+                      <b>สิ่งที่คุณจะได้เรียนรู้</b><br/>
+                      - กระบวนการและขั้นตอนของ Design Thinking ทั้งหมด อย่างละเอียด<br/>
+                      - วิธีการนำ Design Thinking ไปประยุกต์ใช้การงาน และการดำรงชีวิตประจำวัน<br/>
+                      - ตัวอย่างการใช้ Design Thinking ขององค์กรชั้นนำ<br/>
+                      - ความต่างของ Design Thinking เมื่อเทียบกับ Thinking อื่นๆ</p>
+                    <p>
+                      <b>ผู้เรียนต้องมีความรู้อะไรมาก่อนหรือไม่<br/>
+                      </b>- คอร์สนี้เหมาะสำหรับทุกคน ไม่จำเป็นต้องมีความรู้ด้านใดมาก่อนก็เรียนได้
+                      </p>
+                    <p>
+                      <b>ประเภทของคอร์ส</b><br/>
+                      (C) คอร์สนี้เป็นคอร์สบังคับ (Core Course)&nbsp; ของหลักสูตรปริญญาโทบริหารธุรกิจ สาขา Business Innovation ของมหาวิทยาลัยธรรมศาสตร์และ SkillLane
+                    </p>
+                    <p>
+                      <b>การคำนวณเกรด</b><br/>
+                      คอร์สนี้ประกอบด้วย 1. แบบทดสอบ (Quiz) คิดเป็น 25% ของเกรด และ 2. ข้อสอบไฟนอล (Final Exam) คิดเป็น 75% ของเกรด โดยการตัดเกรดเป็นดังนี้
+                      </p>
+                    <p>
+                      A 90-100<br/>
+                      A- 85-89.99<br/>
+                      B+ 80-84.99<br/>
+                      B 75-79.99<br/>
+                      B- 70-74.99<br/>
+                      C+ 65-69.99<br/>
+                      C 60-64.99<br/>
+                      D 50-59.99<br/>
+                      F 0-49.99
+                    </p>
+                    <p>
+                      <b>ประวัติวิทยากร<br/>
+                      </b><i>เมษ์ ศรีพัฒนาสกุล<br/>
+                      </i>ปัจจุบัน เมษ์ ศรีพัฒนาสกุล ดำรงตำแหน่งกรรมการผู้จัดการและผู้ร่วมก่อตั้ง LUKKID บริษัทที่ให้คำปรึกษาเรื่องการคิดเชิงออกแบบ (Design Thinking) ให้กับบริษัทชั้นนำของประเทศไทย เมษ์เป็นผู้เชี่ยวชาญด้าน Design Thinking โดยเฉพาะ เขาเคยเป็นหัวหน้าทีมคิดเชิงออกแบบที่ Hasso Plattner Institute of Design ที่ มหาวิทยาลัย Stanford เขาจบการศึกษาปริญญาโทสาขา MBA จาก Stanford Graduate School of Business และจบการศึกษาปริญญาตรีสาขา Bioengineering จาก University of Pennsylvania
+                    </p>
+                  </div>
+                </div>
+                <div className="collape" onClick={() => setToogle(!toggle)}>
+                  <h3>{!toggle?'อ่านทั้งหมด':'ซ่อน'}</h3>
+                </div>
+                <div className="curriculum mt-4">
+                  <h3>
+                    เนื้อหาของคอร์สนี้
+                  </h3>
+                  <div class="box-playlist">
+                    aaa
+                  </div>
+                </div>
+              </Tab>
+              <Tab eventKey="payment" title="วิธีการชำระเงิน">
+                <div />
+              </Tab>
+              <Tab eventKey="chat" title="ห้องสนทนา">
+                <div />
+              </Tab>
+              <Tab eventKey="review" title="รีวิว">
+                <div />
+              </Tab>
+            </Tabs>
+          </div>
+          <div className="col-xl-3 col-lg-12">
+            s
+          </div>
         </div>
-      </main>
-
-      <footer>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className="logo" />
-        </a>
-      </footer>
-
+      </div>
       <style jsx>{`
-        .container {
-          min-height: 100vh;
-          padding: 0 0.5rem;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
+        .course {
+          background-size: cover;
+          background-position: right;
+          background-image: url(https://skilllane.s3-ap-southeast-1.amazonaws.com/banner_academic/tu_banner.png);
+          height: 250px;
         }
-
-        main {
-          padding: 5rem 0;
-          flex: 1;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
+        .collapsible {
+          overflow: hidden;
+          transition: all 0.3s ease 0s;
+          line-height: 1.2rem;
         }
-
-        footer {
-          width: 100%;
-          height: 100px;
-          border-top: 1px solid #eaeaea;
-          display: flex;
-          justify-content: center;
-          align-items: center;
+        .collape > h3 {
+          font-size: 1.33em;
+          color: #00532a;
+          font-weight: normal;
+          margin: 0px;
+          padding: 0px;
+          cursor: pointer;
         }
-
-        footer img {
-          margin-left: 0.5rem;
-        }
-
-        footer a {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-
-        a {
-          color: inherit;
-          text-decoration: none;
-        }
-
-        .title a {
-          color: #0070f3;
-          text-decoration: none;
-        }
-
-        .title a:hover,
-        .title a:focus,
-        .title a:active {
+        .collape:hover > h3 {
           text-decoration: underline;
         }
-
-        .title {
-          margin: 0;
-          line-height: 1.15;
-          font-size: 4rem;
-        }
-
-        .title,
-        .description {
-          text-align: center;
-        }
-
-        .description {
-          line-height: 1.5;
-          font-size: 1.5rem;
-        }
-
-        code {
-          background: #fafafa;
-          border-radius: 5px;
-          padding: 0.75rem;
-          font-size: 1.1rem;
-          font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
-            DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
-        }
-
-        .grid {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          flex-wrap: wrap;
-
-          max-width: 800px;
-          margin-top: 3rem;
-        }
-
-        .card {
-          margin: 1rem;
-          flex-basis: 45%;
-          padding: 1.5rem;
-          text-align: left;
-          color: inherit;
-          text-decoration: none;
-          border: 1px solid #eaeaea;
-          border-radius: 10px;
-          transition: color 0.15s ease, border-color 0.15s ease;
-        }
-
-        .card:hover,
-        .card:focus,
-        .card:active {
-          color: #0070f3;
-          border-color: #0070f3;
-        }
-
-        .card h3 {
-          margin: 0 0 1rem 0;
-          font-size: 1.5rem;
-        }
-
-        .card p {
-          margin: 0;
-          font-size: 1.25rem;
-          line-height: 1.5;
-        }
-
-        .logo {
-          height: 1em;
-        }
-
-        @media (max-width: 600px) {
-          .grid {
-            width: 100%;
-            flex-direction: column;
-          }
-        }
-      `}</style>
-
-      <style jsx global>{`
-        html,
-        body {
-          padding: 0;
-          margin: 0;
-          font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-            Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
-            sans-serif;
-        }
-
-        * {
-          box-sizing: border-box;
-        }
-      `}</style>
+      `}
+      </style>
     </div>
   )
 }
