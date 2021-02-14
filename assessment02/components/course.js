@@ -164,7 +164,7 @@ export default function Home() {
         .course-glance-card > .row {
           margin: 0;
         }
-        @media (min-width: 500px) {
+        @media (max-width: 767px) {
           .course-glance-card {
             margin: 15px 0 0 0;
             padding: 20px 15px 20px 15px;

@@ -1,13 +1,31 @@
 import Head from 'next/head'
 import { useState } from 'react';
-import { Tabs, Tab } from 'react-bootstrap';
+import { Tabs, Tab, Badge } from 'react-bootstrap';
 import Header from '../components/header'
 import Course from '../components/course'
+import Teacher from '../components/teacher'
 
 import { curriculumItems } from '../data'
 
 export default function Home() {
   const [toggle, setToogle] = useState(Boolean)
+
+  const BadgeFree = (props) => {
+    if (props.show) {
+      return <Badge variant="success" className="align-self-center">ดูตัวอย่างฟรี</Badge>
+    }
+    return <div />
+  }
+
+  const BadgeIcon = (props) => {
+    if (props.type == 2) {
+      return <svg className="svg-inline--fa fa-w-18" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M400 32H48C21.49 32 0 53.49 0 80v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V80c0-26.51-21.49-48-48-48zm0 400H48V80h352v352zm-35.864-241.724L191.547 361.48c-4.705 4.667-12.303 4.637-16.97-.068l-90.781-91.516c-4.667-4.705-4.637-12.303.069-16.971l22.719-22.536c4.705-4.667 12.303-4.637 16.97.069l59.792 60.277 141.352-140.216c4.705-4.667 12.303-4.637 16.97.068l22.536 22.718c4.667 4.706 4.637 12.304-.068 16.971z"></path></svg>
+    } else if (props.type == 3) {
+      return <svg className="svg-inline--fa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" data-fa-i2svg=""><path fill="currentColor" d="M288 248v28c0 6.6-5.4 12-12 12H108c-6.6 0-12-5.4-12-12v-28c0-6.6 5.4-12 12-12h168c6.6 0 12 5.4 12 12zm-12 72H108c-6.6 0-12 5.4-12 12v28c0 6.6 5.4 12 12 12h168c6.6 0 12-5.4 12-12v-28c0-6.6-5.4-12-12-12zm108-188.1V464c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V48C0 21.5 21.5 0 48 0h204.1C264.8 0 277 5.1 286 14.1L369.9 98c9 8.9 14.1 21.2 14.1 33.9zm-128-80V128h76.1L256 51.9zM336 464V176H232c-13.3 0-24-10.7-24-24V48H48v416h288z"></path></svg>
+    } else {
+      return <svg className="svg-inline--fa fa-w-20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M371.7 238l-176-107c-15.8-8.8-35.7 2.5-35.7 21v208c0 18.4 19.8 29.8 35.7 21l176-101c16.4-9.1 16.4-32.8 0-42zM504 256C504 119 393 8 256 8S8 119 8 256s111 248 248 248 248-111 248-248zm-448 0c0-110.5 89.5-200 200-200s200 89.5 200 200-89.5 200-200 200S56 366.5 56 256z"></path></svg>
+    }
+  }
 
   return (
     <div className="course">
@@ -78,31 +96,92 @@ export default function Home() {
                   <h3>{!toggle?'อ่านทั้งหมด':'ซ่อน'}</h3>
                 </div>
                 <div className="curriculum mt-4">
-                  <h3>
+                  <h3 style={{color:'#00532a'}}>
                     เนื้อหาของคอร์สนี้
                   </h3>
-                  <div class="box-playlist">
-                    aaa
+                  <div className="playlist">
+                    {curriculumItems.map((e, i) => (
+                      <div key={i}>
+                        <div className="title">
+                          {e.title}
+                        </div>
+                        {e.course.map((c, l) => (
+                          <div className={`chapter d-flex ${!c.free ? 'buy' : ''}`} key={`${i}-${l}`}>
+                            <div className="chapter-name align-self-center flex-grow-1">{c.name}</div>  
+  
+                            <BadgeFree show={+c.free} />
+                            <div className="chapter-icon align-self-center px-2">
+                              <BadgeIcon type={c.type} />
+                            </div>
+                            <div className="text-duration align-self-center">{c.time}</div>
+                          </div>
+                        ))}
+                      </div>
+                    ))}
                   </div>
                 </div>
               </Tab>
-              <Tab eventKey="payment" title="วิธีการชำระเงิน">
-                <div />
+              <Tab tabClassName="d-none d-xl-block" eventKey="payment" title="วิธีการชำระเงิน">
+                <div>Empty.</div>
               </Tab>
-              <Tab eventKey="chat" title="ห้องสนทนา">
-                <div />
+              <Tab tabClassName="d-none d-xl-block" eventKey="chat" title="ห้องสนทนา">
+                <div>Empty.</div>
+              </Tab>
+              <Tab tabClassName="d-block d-xl-none" eventKey="teacher" title="ผู้สอน">
+                <Teacher />
               </Tab>
               <Tab eventKey="review" title="รีวิว">
-                <div />
+                <div>Empty.</div>
               </Tab>
             </Tabs>
           </div>
-          <div className="col-xl-3 col-lg-12">
-            s
+          <div className="col-xl-3 col-lg-12 d-none d-xl-block">
+            <div className="mt-4 mb-2">
+              <h3>ผู้สอน</h3>
+            </div>
+            <Teacher />
           </div>
         </div>
       </div>
       <style jsx>{`
+        .title {
+          text-align: left;
+          padding: 5px;
+          margin: 0px 0px 1px 0px;
+          color: #fff;
+          background-color: #7B7B7B;
+        }
+
+        .chapter {
+          color: #5C7635;
+          line-height: 1rem;
+          margin: 8px;
+          background-color: #fff;
+          cursor: pointer;
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+        }
+        .chapter-name {
+          display: -webkit-box;
+          -webkit-line-clamp: 1;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+        }
+        
+        .chapter.buy {
+          color: #676767 !important;
+          cursor: default !important;
+        }
+        .chapter:hover {
+          color: #04542b;
+        }
+        .text-duration {
+          min-width: 70px;
+          text-align: right;
+        }
+
         .course {
           background-size: cover;
           background-position: right;
@@ -124,6 +203,13 @@ export default function Home() {
         }
         .collape:hover > h3 {
           text-decoration: underline;
+        }
+
+        .playlist {
+          font-size: 3.1rem;
+          margin: 0px 0px 10px 0px;
+          background-color: #fff;
+          border: 1px solid #e5e5e5;
         }
       `}
       </style>
