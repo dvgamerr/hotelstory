@@ -143,7 +143,33 @@ export default function Home() {
           </div>
         </div>
       </div>
+
+      <style jsx global>{`
+        .nav-tabs > a.nav-item {
+          color: #8e8e8e;
+          transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+          font-size: 1.33em;
+          font-weight: normal;
+          line-height: 1;
+          padding: 10px 15px;
+          margin-right: 0;
+          border: none;
+          border-bottom: 1px solid #CCC;
+          border-radius: unset;
+        }
+        .nav-tabs > a.nav-item:hover {
+          background-color: #EEE;
+        }
+        .nav-tabs > a.nav-item.active {
+          border-bottom-color: #00532a;
+          color: #00532a;
+          padding-bottom: 6px;
+          border-bottom-width: 5px;
+        }
+      `}</style>
+
       <style jsx>{`
+
         .title {
           text-align: left;
           padding: 5px;

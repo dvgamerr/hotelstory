@@ -20,7 +20,7 @@ export default function Home() {
               </div>
           </div>
         </div>
-        <div className="card-content">
+        <div className="card-content mt-2">
           <ul className="card-detail">
             <li>กรรมการผู้จัดการและผู้ร่วมก่อตั้ง Asian Leadership Academy / LUKKID</li>
             <li>ที่ปรึกษาเรื่องการคิดเชิงออกแบบ (Design Thinking) ให้กับบริษัทชั้นนำของประเทศไทย</li>
@@ -48,7 +48,7 @@ export default function Home() {
               </div>
           </div>
         </div>
-        <div className="card-content">
+        <div className="card-content mt-2">
           <ul className="card-detail">
             <li>สถาบันวิชาการชั้นนำของเอเชีย ที่ได้มาตรฐานสากลในการผลิตบัณฑิต การสร้างองค์ความรู้ และการแก้ปัญหาต่าง ๆ</li>
             <li>ยึดมั่นในคุณธรรมและการรับใช้ประชาชน ดังคำขวัญของมหาวิทยาลัยที่กล่าวว่า เป็นเลิศ เป็นธรรม ร่วมนำสังคม</li>
